@@ -1,7 +1,9 @@
 class people::morgante {
 
 	notify { 'class people::morgante declared': }
-
+	
+	$my_homedir = "/Users/${::luser}"
+	
 	# Set my git credentials properly
 	include git
 	git::config::global { 'user.email':
@@ -39,14 +41,15 @@ class people::morgante {
 	}
 
 	#### Load Apps
+	
 	# -- textmate
-	file { "textmate-support":
-		path	=> "~/Library/Application\ Support/TextMate"
-		ensure  => link,
-		mode    => '0644',
-		target  => "~/Dropbox/Applications/TextMate/support"
-	}
-	include { "textmate": }
+	file { "textmate-config":
+		path	=> "${my_homedir}/Library/Application Support/TextMate",
+	    ensure  => link,
+	    mode    => '0644',
+		target  => "${my_homedir}//Dropbox/Applications/TextMate/support"
+	  }
+	include "textmate"
 	
 
 	# Just some apps I like
