@@ -11,29 +11,33 @@ class people::morgante {
 		value  => 'Morgante Pell'
 	}
 
-	# Load dotfiles
-	repository { "${boxen::config::srcdir}/dotfiles":
-	    source => 'morgante/dotfiles',
-	  }
-
-	# file { "${my_homedir}/.osx":
-	# 	ensure  => link,
-	# 	mode    => '0644',
-	# 	target  => "${my_sourcedir}/dotfiles/home/.osx",
-	# 	require => Repository["${boxen::config::srcdir}/dotfiles"],
-	# }
+	####### Load dotfiles
+	# always pull fresh copy from server
+	#exec { "kill old dotfiles":
+	#	command	 => "rm -r ${boxen::config::srcdir}/dotfiles",
+	#	provider => shell
+	#}
 	
-	exec { "set osx preferences":
-		command	 => "${boxen::config::srcdir}/dotfiles/home/.osx",
+	# define dotfile repo
+	repository { "${boxen::config::srcdir}/dotfiles":
+		source => 'morgante/dotfiles',
+		# require => Exec["kill old dotfiles"]
+	}
+	
+	# set osx preferences
+	# ---- this part is a hack
+	exec { "prepare osx preferences script":
+		command	 => "chmod 777 ${boxen::config::srcdir}/dotfiles/home/.osx",
 		provider => shell,
 		require  => Repository["${boxen::config::srcdir}/dotfiles"],
 	}
+	exec { "set osx preferences":
+		command	 => "${boxen::config::srcdir}/dotfiles/home/.osx",
+		provider => shell,
+		user => root,
+		require  => Exec["prepare osx preferences script"],
+	}
 	
-	# exec { "cp -r ${dotfiles}/fonts/SourceCodePro ${home}/Library/Fonts/SourceCodePro":
-	#     creates => "${home}/Library/Fonts/SourceCodePro",
-	#     require => Repository[${my_sourcedir}/dotfiles]
-	#   }
-
 	# Use zsh!
 	include zsh
 
