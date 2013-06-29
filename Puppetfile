@@ -33,3 +33,6 @@ github "sudo",       "1.0.0"
 
 # Optional/custom modules. There are tons available at
 # https://github.com/boxen.
+github "osx",        "1.0.0"
+github "chrome",     "1.1.1"
+github "zsh",	     "1.0.0"
