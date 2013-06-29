@@ -12,11 +12,11 @@ class people::morgante {
   }
 
   # Load dotfiles
-  # $dotfiles_dir = "${boxen::config::srcdir}/dotfiles"
+  $dotfiles_dir = "${boxen::config::srcdir}/dotfiles"
 
-  # repository { $dotfiles_dir:
-  #	source => "${::github_user}/dotfiles"
-  #}
+  repository { $dotfiles_dir:
+  	source => "${::github_user}/dotfiles"
+  }
   
 
   # Set osx preferences
@@ -24,7 +24,7 @@ class people::morgante {
   	cwd      => $dotfiles_dir,
   	command  => "./home/.osx",
   	provider => shell,
- 	require  => Repository[$dotfiles_dir]
+  	require  => Repository[$dotfiles_dir]
   }
 
   # Use zsh!
