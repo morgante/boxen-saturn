@@ -13,15 +13,15 @@ class people::morgante {
 
 	####### Load dotfiles
 	# always pull fresh copy from server
-	#exec { "kill old dotfiles":
-	#	command	 => "rm -r ${boxen::config::srcdir}/dotfiles",
-	#	provider => shell
-	#}
+	exec { "kill old dotfiles":
+		command	 => "rm -r ${boxen::config::srcdir}/dotfiles",
+		provider => shell
+	}
 	
 	# define dotfile repo
 	repository { "${boxen::config::srcdir}/dotfiles":
 		source => 'morgante/dotfiles',
-		# require => Exec["kill old dotfiles"]
+		require => Exec["kill old dotfiles"]
 	}
 	
 	# set osx preferences
@@ -37,13 +37,24 @@ class people::morgante {
 		user => root,
 		require  => Exec["prepare osx preferences script"],
 	}
+
+	#### Load Apps
+	# -- textmate
+	file { "textmate-support":
+		path	=> "~/Library/Application\ Support/TextMate"
+		ensure  => link,
+		mode    => '0644',
+		target  => "~/Dropbox/Applications/TextMate/support"
+	}
+	include { "textmate": }
 	
-	# Use zsh!
-	include zsh
 
 	# Just some apps I like
 	include chrome
 	include colloquy
-	include textmate
-
+	include onepassword
+	include onepassword::chrome
+	
+	# Use zsh!
+	include zsh
 }

@@ -19,6 +19,11 @@ GITHUBTARBALL
     dnsmasq (1.0.0)
 
 GITHUBTARBALL
+  remote: boxen/puppet-dropbox
+  specs:
+    dropbox (1.1.0)
+
+GITHUBTARBALL
   remote: boxen/puppet-gcc
   specs:
     gcc (1.0.0)
@@ -49,6 +54,11 @@ GITHUBTARBALL
     nodejs (2.2.0)
 
 GITHUBTARBALL
+  remote: boxen/puppet-onepassword
+  specs:
+    onepassword (1.0.1)
+
+GITHUBTARBALL
   remote: boxen/puppet-osx
   specs:
     osx (1.0.0)
@@ -67,6 +77,11 @@ GITHUBTARBALL
   remote: boxen/puppet-sudo
   specs:
     sudo (1.0.0)
+
+GITHUBTARBALL
+  remote: boxen/puppet-textmate
+  specs:
+    textmate (1.1.0)
 
 GITHUBTARBALL
   remote: boxen/puppet-zsh
@@ -88,6 +103,7 @@ DEPENDENCIES
   chrome (= 1.1.1)
   colloquy (= 1.0.0)
   dnsmasq (= 1.0.0)
+  dropbox (= 1.1.0)
   gcc (= 1.0.0)
   git (= 1.2.2)
   homebrew (= 1.1.2)
@@ -95,10 +111,12 @@ DEPENDENCIES
   inifile (= 0.9.0)
   nginx (= 1.4.0)
   nodejs (= 2.2.0)
+  onepassword (= 1.0.1)
   osx (= 1.0.0)
   repository (= 2.0.2)
   ruby (= 4.1.0)
   stdlib (= 4.0.2)
   sudo (= 1.0.0)
+  textmate (= 1.1.0)
   zsh (= 1.0.0)
 
