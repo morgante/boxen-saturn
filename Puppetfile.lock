@@ -94,6 +94,11 @@ GITHUBTARBALL
     inifile (0.9.0)
 
 GITHUBTARBALL
+  remote: fromonesrc/puppet-transmission
+  specs:
+    transmission (1.0.0)
+
+GITHUBTARBALL
   remote: puppetlabs/puppetlabs-stdlib
   specs:
     stdlib (4.0.2)
@@ -118,5 +123,6 @@ DEPENDENCIES
   stdlib (= 4.0.2)
   sudo (= 1.0.0)
   textmate (= 1.1.0)
+  transmission (= 1.0.0)
   zsh (= 1.0.0)
 

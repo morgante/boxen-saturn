@@ -77,6 +77,12 @@ class people::morgante {
         path    => "${my_homedir}/Documents/work",
         target  => "${my_homedir}/Dropbox/work"
     }
+    file { "symlink-shelf":
+        ensure  => link,
+        mode    => '0644',
+        path    => "${my_homedir}/shelf",
+        target  => "${my_homedir}/Dropbox/Shelf"
+    }
     
     #### Load Apps
     # -- textmate
@@ -96,6 +102,9 @@ class people::morgante {
         path    => "${my_homedir}/Library/Application Support/AddressBook",
         target  => "${my_homedir}/Dropbox/Applications/AddressBook/support"
     }
+    
+    # -- Transmission
+    include "transmission"
 
     # Just some apps I like
     include chrome
@@ -108,7 +117,6 @@ class people::morgante {
     
     #     ln -s ~/Dropbox/Applications/AddressBook/support ~/Library/Application\ Support/AddressBook
     #     ln -s ~/Dropbox/Applications/Quicksilver/support ~/Library/Application\ Support/Quicksilver
-    #     ln -s ~/Dropbox/Applications/TextMate/support ~/Library/Application\ Support/TextMate
     #     ln -s ~/Dropbox/Applications/Adium/support ~/Library/Application\ Support/Adium\ 2.0
     #     ln -s ~/Dropbox/Applications/Delicious_Library/support ~/Library/Application\ Support/Delicious\ Library\ 2
     #     ln -s ~/Dropbox/Applications/Yojimbo/support ~/Library/Application\ Support/Yojimbo

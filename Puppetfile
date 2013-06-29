@@ -33,10 +33,11 @@ github "sudo",       "1.0.0"
 
 # Optional/custom modules. There are tons available at
 # https://github.com/boxen.
-github "osx",        "1.0.0"
-github "chrome",     "1.1.1"
-github "zsh",	     "1.0.0"
-github "colloquy",   "1.0.0"
-github "textmate",   "1.1.0"
-github "onepassword","1.0.1"
-github "dropbox",	 "1.1.0"
+github "osx",       	"1.0.0"
+github "chrome",    	"1.1.1"
+github "zsh",	    	"1.0.0"
+github "colloquy",   	"1.0.0"
+github "textmate",   	"1.1.0"
+github "onepassword",	"1.0.1"
+github "dropbox",	 	"1.1.0"
+github "transmission",	"1.0.0", :repo => "fromonesrc/puppet-transmission"
