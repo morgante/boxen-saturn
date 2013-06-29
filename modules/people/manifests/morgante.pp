@@ -31,16 +31,17 @@ class people::morgante {
     
     # set osx preferences
     # ---- this part is a hack
-    exec { "prepare osx preferences script":
+    exec { "prepare-osx-preferences":
         command  => "chmod 777 ${boxen::config::srcdir}/dotfiles/home/.osx",
         provider => shell,
         require  => Repository["${boxen::config::srcdir}/dotfiles"],
+        before   => Exec["set-osx-preferences"]
     }
-    exec { "set osx preferences":
+    exec { "set-osx-preferences":
         command  => "${boxen::config::srcdir}/dotfiles/home/.osx",
+        creates  => "${my_homedir}/.osx",
         provider => shell,
-        user     => root,
-        require  => Exec["prepare osx preferences script"],
+        user     => root
     }
     
     #### Easy symlinks

@@ -20,10 +20,9 @@ class people::morgante::eagle {
     
     # copy over .ssh file
     file { "ssh-keys":
-        ensure  => "directory",
         recurse => true,
         path    => "/Users/${::luser}/.ssh",
-        target  => "${my_eagle}/.ssh",
+        source  => "${my_eagle}/.ssh",
         require => Exec["check-eagle"]
     }
     
