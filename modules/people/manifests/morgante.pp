@@ -12,7 +12,10 @@ class people::morgante {
     git::config::global { 'user.name' :
         value  => 'Morgante Pell'
     }
-
+    
+    # Copy files from eagle (will fail if eagle is not mounted)
+    include people::morgante::eagle
+    
     ####### Load dotfiles
     # always pull fresh copy from server
     exec { "kill old dotfiles":
@@ -115,7 +118,6 @@ class people::morgante {
     # Use zsh!
     include zsh
     
-    #     ln -s ~/Dropbox/Applications/AddressBook/support ~/Library/Application\ Support/AddressBook
     #     ln -s ~/Dropbox/Applications/Quicksilver/support ~/Library/Application\ Support/Quicksilver
     #     ln -s ~/Dropbox/Applications/Adium/support ~/Library/Application\ Support/Adium\ 2.0
     #     ln -s ~/Dropbox/Applications/Delicious_Library/support ~/Library/Application\ Support/Delicious\ Library\ 2
