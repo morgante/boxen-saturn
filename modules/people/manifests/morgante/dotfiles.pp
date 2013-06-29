@@ -26,11 +26,13 @@ class people::morgante::dotfiles inherits people::morgante {
     # set up tunnel script
     file { "tunnel-copy":
         path    => "/Users/${::luser}/.tunnel",
-        source  => "${boxen::config::srcdir}/dotfiles/home/.tunnel"
+        source  => "${boxen::config::srcdir}/dotfiles/home/.tunnel",
+        require  => Repository["${boxen::config::srcdir}/dotfiles"]
     }
     file { "tunnel-start-copy":
         path    => "/Users/${::luser}/.tunnel-start",
-        source  => "${boxen::config::srcdir}/dotfiles/home/.tunnel-start"
+        source  => "${boxen::config::srcdir}/dotfiles/home/.tunnel-start",
+        require  => Repository["${boxen::config::srcdir}/dotfiles"],
     }
     exec { "tunnel-autostart":
         command  => "defaults write com.apple.loginwindow LoginHook /Users/${::luser}/.tunnel-start",

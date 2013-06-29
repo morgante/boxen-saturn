@@ -40,7 +40,4 @@ class people::morgante::applications inherits people::morgante {
     # -- Colloquy
     include colloquy
     
-    # Use zsh!
-    include zsh
-    
 }

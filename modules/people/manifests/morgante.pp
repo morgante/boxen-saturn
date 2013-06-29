@@ -25,8 +25,19 @@ class people::morgante {
     #### Easy symlinks
     include people::morgante::symlinks
     
-    #### Load Apps
-    
+    ### ZSH
+    include "zsh"
+    include "ohmyzsh"
+    file { "zsh-profile":
+        path    => "/Users/${::luser}/.zprofile",
+        source  => "${boxen::config::srcdir}/dotfiles/home/.zprofile",
+        require  => Repository["${boxen::config::srcdir}/dotfiles"]
+    }
+    file { "zsh-rc":
+        path    => "/Users/${::luser}/.zshrc",
+        source  => "${boxen::config::srcdir}/dotfiles/home/.zshrc",
+        require  => Repository["${boxen::config::srcdir}/dotfiles"]
+    }
     
     #     ln -s ~/Dropbox/Applications/Quicksilver/support ~/Library/Application\ Support/Quicksilver
     #     ln -s ~/Dropbox/Applications/Adium/support ~/Library/Application\ Support/Adium\ 2.0
