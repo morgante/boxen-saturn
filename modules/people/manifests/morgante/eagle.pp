@@ -1,5 +1,5 @@
 # this file simple copies stuff over from the eagle backup
-class people::morgante::eagle {
+class people::morgante::eagle inherits people::morgante {
     
     # notify { 'copying certain files from eagle': }
     
