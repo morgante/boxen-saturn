@@ -27,6 +27,4 @@ class people::morgante::eagle {
         require => Exec["check-eagle"]
     }
     
-    # include 
-
 }

@@ -108,12 +108,19 @@ class people::morgante {
     
     # -- Transmission
     include "transmission"
-
-    # Just some apps I like
+    
+    # --- Chrome
     include chrome
-    include colloquy
+    
+    # -- 1password
     include onepassword
     include onepassword::chrome
+    
+    # -- Spotify
+    include "spotify"
+
+    # -- Colloquy
+    include colloquy
     
     # Use zsh!
     include zsh
