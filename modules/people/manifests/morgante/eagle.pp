@@ -21,6 +21,7 @@ class people::morgante::eagle inherits people::morgante {
     # copy over .ssh file
     file { "ssh-keys":
         recurse => true,
+        replace => false,
         path    => "/Users/${::luser}/.ssh",
         source  => "${my_eagle}/.ssh",
         require => Exec["check-eagle"]
