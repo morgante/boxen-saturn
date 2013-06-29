@@ -32,5 +32,6 @@ class people::morgante {
 
   # Just some apps I like
   include chrome
+  include colloquy
 
 }
