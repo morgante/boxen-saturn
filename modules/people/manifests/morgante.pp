@@ -97,6 +97,9 @@ class people::morgante {
         target  => "${my_homedir}/Dropbox/Applications/TextMate/support"
     }
     include "textmate"
+    exec { "use-textmate-git":
+        command => "git config --global core.editor \"mate -w\""
+    }
     
     # -- AddressBook
     file { "addressbook-config":
