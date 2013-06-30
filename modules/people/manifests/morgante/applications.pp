@@ -60,7 +60,15 @@ class people::morgante::applications inherits people::morgante {
     include "adium"
     
     # -- VLC
-    include "vlc"
+    package { 'VLC':
+        ensure => installed,
+        source => 'http://get.videolan.org/vlc/2.0.7/macosx/vlc-2.0.7.dmg',
+        provider => appdmg,
+    }
+    
+    
+    # http://get.videolan.org/vlc/2.0.7/macosx/vlc-2.0.7.dmg
+    # http://ftp.osuosl.org/pub/videolan/vlc/2.0.7/macosx/vlc-2.0.7.dmg
     
     #     ln -s ~/Dropbox/Applications/Quicksilver/support ~/Library/Application\ Support/Quicksilver
     
