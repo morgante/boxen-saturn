@@ -24,6 +24,27 @@ class people::morgante::applications inherits people::morgante {
         target  => "${my_homedir}/Dropbox/Applications/AddressBook/support"
     }
     
+    # -- Mail.app
+    file { "mail-pref":
+        ensure  => link,
+        mode    => '0644',
+        force   => true,
+        path    => "${my_homedir}/Library/Preferences/com.apple.mail.plist",
+        target  => "${my_homedir}/Dropbox/Applications/Mail/Preferences/com.apple.mail.plist"
+    }
+   
+    file { "mail-data":
+        ensure  => link,
+        mode    => '0644',
+        force   => true,
+        path    => "${my_homedir}/Library/Mail",
+        target  => "${my_homedir}/Dropbox/Applications/Mail/accounts"
+    }
+    
+    
+    #     ln -s ~/Dropbox/Applications/Mail/Preferences/com.apple.mail.plist ~/Library/Preferences/com.apple.mail.plist
+    #     ln -s ~/Dropbox/Applications/Mail/accounts ~/Library/Mail
+    
     # -- Transmission
     include "transmission"
     

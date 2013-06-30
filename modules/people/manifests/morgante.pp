@@ -50,8 +50,6 @@ class people::morgante {
     #     ln -s /Applications/Dockables/Dockables/Sleep.app "/Applications/ Sleep.app"
     #     ln -s /Library/WebServer/Documents ~/Web
     #     ln -s ~/Dropbox/computer/video ~/Movies
-    #     ln -s ~/Dropbox/Applications/Mail/Preferences/com.apple.mail.plist ~/Library/Preferences/com.apple.mail.plist
-    #     ln -s ~/Dropbox/Applications/Mail/accounts ~/Library/Mail
     #     ln -s ~/Dropbox/computer/htdocs ~/Documents/htdocs
     # 
     # 
