@@ -51,12 +51,11 @@ class people::morgante::applications inherits people::morgante {
     }
     
     # -- Adium
-    file { "adium-support":
+    file { "adium-config":
         ensure  => link,
         mode    => '0644',
-        force   => true,
-        path    => "${my_homedir}/Application Support/Adium 2.0",
-        target  => "${my_homedir}/Dropbox/Adium/support"
+        path    => "${my_homedir}/Library/Application Support/Adium 2.0",
+        target  => "${my_homedir}/Dropbox/Applications/Adium/support"
     }
     include "adium"    
     
