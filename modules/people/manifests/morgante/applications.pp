@@ -50,6 +50,16 @@ class people::morgante::applications inherits people::morgante {
         target  => "${my_homedir}/Dropbox/Applications/iCal/Calendars"
     }
     
+    # -- Adium
+    file { "adium-support":
+        ensure  => link,
+        mode    => '0644',
+        force   => true,
+        path    => "${my_homedir}/Application Support/Adium 2.0",
+        target  => "${my_homedir}/Dropbox/Adium/support"
+    }
+    include "adium"    
+    
     #     ln -s ~/Dropbox/Applications/Quicksilver/support ~/Library/Application\ Support/Quicksilver
     
     

@@ -1,4 +1,9 @@
 GITHUBTARBALL
+  remote: boxen/puppet-adium
+  specs:
+    adium (1.1.1)
+
+GITHUBTARBALL
   remote: boxen/puppet-boxen
   specs:
     boxen (2.1.0)
@@ -114,6 +119,7 @@ GITHUBTARBALL
     ohmyzsh (1.0.0)
 
 DEPENDENCIES
+  adium (= 1.1.1)
   boxen (= 2.1.0)
   chrome (= 1.1.1)
   colloquy (= 1.0.0)
