@@ -57,7 +57,10 @@ class people::morgante::applications inherits people::morgante {
         path    => "${my_homedir}/Library/Application Support/Adium 2.0",
         target  => "${my_homedir}/Dropbox/Applications/Adium/support"
     }
-    include "adium"    
+    include "adium"
+    
+    # -- VLC
+    include "vlc"
     
     #     ln -s ~/Dropbox/Applications/Quicksilver/support ~/Library/Application\ Support/Quicksilver
     
