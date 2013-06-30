@@ -81,6 +81,14 @@ class people::morgante::applications inherits people::morgante {
         target  => "/Applications/Quicksilver.app"
     }
     
+    # -- Activity Monitor
+    file { "activity-monitor-link":
+        ensure  => link,
+        mode    => '0644',
+        path    => "${my_homedir}/Shelf/Activity Monitor",
+        target  => "/Applications/Utilities/Activity Monitor.app"
+    }
+    
     #     ln -s ~/Dropbox/Applications/Quicksilver/support ~/Library/Application\ Support/Quicksilver
     
     
