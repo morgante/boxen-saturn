@@ -53,8 +53,16 @@ class people::morgante::symlinks inherits people::morgante {
         ensure  => link,
         mode    => '0644',
         path    => "${my_homedir}/Pictures/wallpaper",
-        target  => "${my_homedir}/work/media/wallpaper"
-    }    
+        target  => "${my_homedir}/Dropbox/Apps/Desktoppr"
+    }  
+    
+    # video
+    file { "symlink-video":
+        ensure  => link,
+        mode    => '0644',
+        path    => "${my_homedir}/Movies",
+        target  => "${my_homedir}/Dropbox/computer/video"
+    }      
     
     # keychain
     file { "symlink-keychain":

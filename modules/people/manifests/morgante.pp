@@ -39,15 +39,4 @@ class people::morgante {
         require  => Repository["${boxen::config::srcdir}/dotfiles"]
     }
     
-    #     ln -s ~/Dropbox/Journler ~/Documents/Journler
-    #     ln -s ~/Dropbox/Shelf ~/Shelf
-    #     ln -s /Applications/Dockables/Dockables "/Applications/ Controls"
-    #     ln -s /Applications/Dockables/Dockables/Sleep.app "/Applications/ Sleep.app"
-    #     ln -s /Library/WebServer/Documents ~/Web
-    #     ln -s ~/Dropbox/computer/video ~/Movies
-    #     ln -s ~/Dropbox/computer/htdocs ~/Documents/htdocs
-    # 
-    # 
-    #     sudo rm -R ~/Library/Calendars
-    #     ln -s ~/Dropbox/Applications/iCal/Calendars ~/Library/Calendars
 }

@@ -46,10 +46,10 @@ class people::morgante::applications inherits people::morgante {
         ensure  => link,
         mode    => '0644',
         force   => true,
-        path    => "${my_homedir}/Calendars",
+        path    => "${my_homedir}/Library/Calendars",
         target  => "${my_homedir}/Dropbox/Applications/iCal/Calendars"
     }
-    
+        
     # -- Adium
     file { "adium-config":
         ensure  => link,
