@@ -41,9 +41,17 @@ class people::morgante::applications inherits people::morgante {
         target  => "${my_homedir}/Dropbox/Applications/Mail/accounts"
     }
     
+    # -- Calendar    
+    file { "calendar-config":
+        ensure  => link,
+        mode    => '0644',
+        force   => true,
+        path    => "${my_homedir}/Calendars",
+        target  => "${my_homedir}/Dropbox/Applications/iCal/Calendars"
+    }
     
-    #     ln -s ~/Dropbox/Applications/Mail/Preferences/com.apple.mail.plist ~/Library/Preferences/com.apple.mail.plist
-    #     ln -s ~/Dropbox/Applications/Mail/accounts ~/Library/Mail
+    #     ln -s ~/Dropbox/Applications/Quicksilver/support ~/Library/Application\ Support/Quicksilver
+    
     
     # -- Transmission
     include "transmission"
