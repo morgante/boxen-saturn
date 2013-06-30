@@ -89,8 +89,18 @@ class people::morgante::applications inherits people::morgante {
         target  => "/Applications/Utilities/Activity Monitor.app"
     }
     
-    #     ln -s ~/Dropbox/Applications/Quicksilver/support ~/Library/Application\ Support/Quicksilver
-    
+    # Yojimbo
+    file { "yohimbo-config":
+        ensure  => link,
+        mode    => '0644',
+        path    => "${my_homedir}/Library/Application Support/Yojimbo",
+        target  => "${my_homedir}/Dropbox/Applications/Yojimbo/support"
+    }
+    package { 'yojimbo':
+        ensure => installed,
+        source => 'http://pine.barebones.com/files/yojimbo-304.dmg',
+        provider => appdmg,
+    }
     
     # -- Transmission
     include "transmission"

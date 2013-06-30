@@ -39,10 +39,6 @@ class people::morgante {
         require  => Repository["${boxen::config::srcdir}/dotfiles"]
     }
     
-    #     ln -s ~/Dropbox/Applications/Adium/support ~/Library/Application\ Support/Adium\ 2.0
-    #     ln -s ~/Dropbox/Applications/Delicious_Library/support ~/Library/Application\ Support/Delicious\ Library\ 2
-    #     ln -s ~/Dropbox/Applications/Yojimbo/support ~/Library/Application\ Support/Yojimbo
-    #     ln -s ~/Dropbox/work/media/wallpaper ~/Pictures/wallpaper
     #     ln -s ~/Dropbox/Journler ~/Documents/Journler
     #     ln -s ~/Dropbox/Shelf ~/Shelf
     #     ln -s /Applications/Dockables/Dockables "/Applications/ Controls"
