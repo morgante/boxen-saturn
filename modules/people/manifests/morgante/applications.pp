@@ -74,6 +74,12 @@ class people::morgante::applications inherits people::morgante {
         target  => "${my_homedir}/Dropbox/Applications/Quicksilver/support"
     }
     include "quicksilver"
+    file { "quicksilver-link":
+        ensure  => link,
+        mode    => '0644',
+        path    => "${my_homedir}/Shelf/Quicksilver",
+        target  => "/Applications/Quicksilver.app"
+    }
     
     #     ln -s ~/Dropbox/Applications/Quicksilver/support ~/Library/Application\ Support/Quicksilver
     
