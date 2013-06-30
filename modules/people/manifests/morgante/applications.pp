@@ -66,9 +66,14 @@ class people::morgante::applications inherits people::morgante {
         provider => appdmg,
     }
     
-    
-    # http://get.videolan.org/vlc/2.0.7/macosx/vlc-2.0.7.dmg
-    # http://ftp.osuosl.org/pub/videolan/vlc/2.0.7/macosx/vlc-2.0.7.dmg
+    # -- QuickSilver
+    file { "quicksilver-config":
+        ensure  => link,
+        mode    => '0644',
+        path    => "${my_homedir}/Library/Application Support/Quicksilver",
+        target  => "${my_homedir}/Dropbox/Applications/Quicksilver/support"
+    }
+    include "quicksilver"
     
     #     ln -s ~/Dropbox/Applications/Quicksilver/support ~/Library/Application\ Support/Quicksilver
     
