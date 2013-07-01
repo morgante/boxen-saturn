@@ -34,6 +34,14 @@ class people::morgante {
     # Node.js
     class { 'nodejs::global': version => 'v0.10.5' }
     
+    # Mongo
+    include mongodb
+    include mongodb::config
+    # class { 'mongodb':    
+    #             port => 27017
+    #         
+    # $mongodb::config::port = 27017
+    
     ### ZSH
     include "zsh"
     include "ohmyzsh"

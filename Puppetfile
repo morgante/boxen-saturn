@@ -47,6 +47,7 @@ github "adium",			"1.1.1"
 github "quicksilver",	"1.0.1"
 
 # Development
+github "mongodb",		"1.0.4", :repo => "modestymaster/puppet-mongodb"
 github "foreman",		"1.0.0"
 github "wget",			"1.0.0"
 github "autoconf",		"1.0.0"
