@@ -25,6 +25,9 @@ class people::morgante {
     #### Easy symlinks
     include people::morgante::symlinks
     
+    # PHP Development
+    include people::morgante::mp
+    
     ### ZSH
     include "zsh"
     include "ohmyzsh"

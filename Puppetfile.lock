@@ -4,6 +4,11 @@ GITHUBTARBALL
     adium (1.1.1)
 
 GITHUBTARBALL
+  remote: boxen/puppet-autoconf
+  specs:
+    autoconf (1.0.0)
+
+GITHUBTARBALL
   remote: boxen/puppet-boxen
   specs:
     boxen (2.1.0)
@@ -49,6 +54,11 @@ GITHUBTARBALL
     hub (1.0.0)
 
 GITHUBTARBALL
+  remote: boxen/puppet-libtool
+  specs:
+    libtool (1.0.0)
+
+GITHUBTARBALL
   remote: boxen/puppet-nginx
   specs:
     nginx (1.4.0)
@@ -67,6 +77,16 @@ GITHUBTARBALL
   remote: boxen/puppet-osx
   specs:
     osx (1.0.0)
+
+GITHUBTARBALL
+  remote: boxen/puppet-pcre
+  specs:
+    pcre (1.0.0)
+
+GITHUBTARBALL
+  remote: boxen/puppet-pkgconfig
+  specs:
+    pkgconfig (1.0.0)
 
 GITHUBTARBALL
   remote: boxen/puppet-quicksilver
@@ -99,6 +119,11 @@ GITHUBTARBALL
     textmate (1.1.0)
 
 GITHUBTARBALL
+  remote: boxen/puppet-wget
+  specs:
+    wget (1.0.0)
+
+GITHUBTARBALL
   remote: boxen/puppet-zsh
   specs:
     zsh (1.0.0)
@@ -114,6 +139,11 @@ GITHUBTARBALL
     transmission (1.0.0)
 
 GITHUBTARBALL
+  remote: mattheath/puppet-php
+  specs:
+    php (0.5.7)
+
+GITHUBTARBALL
   remote: puppetlabs/puppetlabs-stdlib
   specs:
     stdlib (4.0.2)
@@ -123,8 +153,21 @@ GITHUBTARBALL
   specs:
     ohmyzsh (1.0.0)
 
+GITHUBTARBALL
+  remote: webflo/boxen-puppet-apache
+  specs:
+    apache (0.0.2)
+
+GITHUBTARBALL
+  remote: webflo/puppet-apache_php
+  specs:
+    apache_php (0.0.2)
+
 DEPENDENCIES
   adium (= 1.1.1)
+  apache (= 0.0.2)
+  apache_php (= 0.0.2)
+  autoconf (= 1.0.0)
   boxen (= 2.1.0)
   chrome (= 1.1.1)
   colloquy (= 1.0.0)
@@ -135,11 +178,15 @@ DEPENDENCIES
   homebrew (= 1.1.2)
   hub (= 1.0.0)
   inifile (= 0.9.0)
+  libtool (= 1.0.0)
   nginx (= 1.4.0)
   nodejs (= 2.2.0)
   ohmyzsh (= 1.0.0)
   onepassword (= 1.0.1)
   osx (= 1.0.0)
+  pcre (= 1.0.0)
+  php (= 0.5.7)
+  pkgconfig (= 1.0.0)
   quicksilver (= 1.0.1)
   repository (= 2.0.2)
   ruby (= 4.1.0)
@@ -148,5 +195,6 @@ DEPENDENCIES
   sudo (= 1.0.0)
   textmate (= 1.1.0)
   transmission (= 1.0.0)
+  wget (= 1.0.0)
   zsh (= 1.0.0)
 

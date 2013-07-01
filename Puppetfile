@@ -45,3 +45,13 @@ github "transmission",	"1.0.0", :repo => "fromonesrc/puppet-transmission"
 github "spotify",		"1.0.0"
 github "adium",			"1.1.1"
 github "quicksilver",	"1.0.1"
+
+# Development
+github "wget",			"1.0.0"
+github "autoconf",		"1.0.0"
+github "libtool",		"1.0.0"
+github "pkgconfig",		"1.0.0"
+github "pcre",			"1.0.0"
+github "apache",		"0.0.2", :repo => "webflo/boxen-puppet-apache"
+github "php",			"0.5.7", :repo => "mattheath/puppet-php"
+github "apache_php",	"0.0.2", :repo => "webflo/puppet-apache_php"
