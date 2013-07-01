@@ -89,7 +89,7 @@ class people::morgante::applications inherits people::morgante {
         target  => "/Applications/Utilities/Activity Monitor.app"
     }
     
-    # Yojimbo
+    # -- Yojimbo
     file { "yohimbo-config":
         ensure  => link,
         mode    => '0644',
@@ -117,5 +117,8 @@ class people::morgante::applications inherits people::morgante {
 
     # -- Colloquy
     include colloquy
+    
+    # -- Dropbox
+    include "dropbox"
     
 }
