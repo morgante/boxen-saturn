@@ -28,6 +28,12 @@ class people::morgante {
     # PHP Development
     include people::morgante::mp
     
+    # Foreman
+    include foreman
+    
+    # Node.js
+    class { 'nodejs::global': version => 'v0.10.5' }
+    
     ### ZSH
     include "zsh"
     include "ohmyzsh"

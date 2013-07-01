@@ -25,7 +25,7 @@ class people::morgante::mp inherits people::morgante {
       # require     => File["${nginx::config::sitesdir}/${name}.conf"],
     # }
     
-    notify{ "${nginx::config::configfile}": }
+    # notify{ "${nginx::config::configfile}": }
     
     
     # # include apache
