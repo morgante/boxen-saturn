@@ -1,7 +1,7 @@
 server {
 	access_log <%= scope.lookupvar "nginx::config::logdir" %>/<%= name %>.access.log main;
 	listen 80;
-	root <%= repo_dir %>;
+	root <%= scope.lookupvar "boxen::config::srcdir" %>/<%= name %>/public;
 	server_name <%= server_name %>;
 
 	client_max_body_size 50M;
@@ -18,15 +18,10 @@ server {
 	# try to serve static first, then index pages and finally index.php
 	try_files $uri $uri/ /index.php?$args;
 
-	# ... but do not expose PHP source code!
-	location \.php$ {
-		deny all;
-	}
-
 	# static files do not change that much.
 	expires  30d;
 
-	location = /index.php {
+	location / {
 		# PHP files are volatile!
 		expires off;
 
