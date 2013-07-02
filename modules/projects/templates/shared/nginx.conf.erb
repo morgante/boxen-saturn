@@ -1,14 +1,10 @@
 server {
-	access_log <%= scope.lookupvar "nginx::config::logdir" %>/<%= name %>.access.log main;
-	listen 80;
-	root <%= scope.lookupvar "boxen::config::srcdir" %>/<%= name %>/public;
-	server_name <%= server_name %>;
+    access_log <%= scope.lookupvar "nginx::config::logdir" %>/<%= name %>.access.log main;
+    listen 80;
+    root <%= scope.lookupvar "boxen::config::srcdir" %>/<%= name %>/public;
+    server_name <%= server_name %>;
 
-	client_max_body_size 50M;
-
-	error_page 500 502 503 504 /50x.html;
-	
-	# curiosity killed the cat
+    # curiosity killed the cat
     location ~ ^/system/(classes|locale|schema) {
         deny all;
     }
@@ -27,14 +23,10 @@ server {
     expires  30d;
  
     location = /index.php {
-        # PHP files are volatile!
-        expires off;
-
-        fastcgi_pass unix:<%= scope.lookupvar "boxen::config::socketdir" %>/<%= name %>;
-
-        # include common params as shipped with nginx
         include <%= scope.lookupvar "nginx::config::configdir" %>/fastcgi_params;
-        fastcgi_param  SCRIPT_NAME     <%= scope.lookupvar "boxen::config::srcdir" %>/<%= name %>/public/index.php;
-        fastcgi_param  SCRIPT_FILENAME $document_root$fastcgi_script_name;
+        keepalive_timeout 0;
+        fastcgi_pass unix:<%= scope.lookupvar "boxen::config::socketdir" %>/<%= name %>;
+        fastcgi_param SCRIPT_FILENAME <%= scope.lookupvar "boxen::config::srcdir" %>/<%= name %>/public/index.php;
+        fastcgi_param PATH_INFO $fastcgi_script_name;
     }
 }
