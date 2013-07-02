@@ -78,6 +78,6 @@ class people::morgante::symlinks inherits people::morgante {
         mode    => '0644',
         path    => "/config",
         target  => "${my_homedir}/Dropbox/computer/config"
-    }  
+    }
     
 }

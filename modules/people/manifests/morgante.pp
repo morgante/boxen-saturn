@@ -42,6 +42,9 @@ class people::morgante {
     #         
     # $mongodb::config::port = 27017
     
+    # Projects
+    include projects::all
+    
     ### ZSH
     include "zsh"
     include "ohmyzsh"
