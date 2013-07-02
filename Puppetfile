@@ -48,6 +48,7 @@ github "quicksilver",	"1.0.1"
 github "skype",			"1.0.3"
 
 # Development
+github "mysql",			"1.1.3"
 github "mongodb",		"1.0.4", :repo => "modestymaster/puppet-mongodb"
 github "foreman",		"1.0.0"
 github "wget",			"1.0.0"

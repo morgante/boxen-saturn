@@ -64,6 +64,11 @@ GITHUBTARBALL
     libtool (1.0.0)
 
 GITHUBTARBALL
+  remote: boxen/puppet-mysql
+  specs:
+    mysql (1.1.3)
+
+GITHUBTARBALL
   remote: boxen/puppet-nginx
   specs:
     nginx (1.4.0)
@@ -196,6 +201,7 @@ DEPENDENCIES
   inifile (= 0.9.0)
   libtool (= 1.0.0)
   mongodb (= 1.0.4)
+  mysql (= 1.1.3)
   nginx (= 1.4.0)
   nodejs (= 2.2.0)
   ohmyzsh (= 1.0.0)

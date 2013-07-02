@@ -37,10 +37,9 @@ class people::morgante {
     # Mongo
     include mongodb
     include mongodb::config
-    # class { 'mongodb':    
-    #             port => 27017
-    #         
-    # $mongodb::config::port = 27017
+    
+    # MySQL
+    include "mysql"
     
     # Projects
     include projects::all

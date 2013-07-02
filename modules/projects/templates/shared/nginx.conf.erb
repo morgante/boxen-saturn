@@ -1,19 +1,39 @@
 server {
-  access_log <%= scope.lookupvar "nginx::config::logdir" %>/<%= name %>.access.log main;
-  listen 80;
+	access_log <%= scope.lookupvar "nginx::config::logdir" %>/<%= name %>.access.log main;
+	listen 80;
+	root <%= repo_dir %>;
+	server_name <%= server_name %>;
 
-  root <%= repo_dir %>;
-  server_name <%= server_name %>;
+	client_max_body_size 50M;
 
-  client_max_body_size 50M;
+	error_page 500 502 503 504 /50x.html;
 
-  error_page 500 502 503 504 /50x.html;
+	# curiosity killed the cat
+	location ~ ^/system/(classes|locale|schema) {
+		deny all;
+	}
 
-  location / {
-    include <%= scope.lookupvar "nginx::config::configdir" %>/fastcgi_params;
-    keepalive_timeout 0;
-    fastcgi_pass unix:<%= scope.lookupvar "boxen::config::socketdir" %>/<%= name %>;
-    fastcgi_param SCRIPT_FILENAME <%= repo_dir %>/index.php;
-    fastcgi_param PATH_INFO $fastcgi_script_name;
-  }
+	index  index.php index.html index.htm;
+
+	# try to serve static first, then index pages and finally index.php
+	try_files $uri $uri/ /index.php?$args;
+
+	# ... but do not expose PHP source code!
+	location \.php$ {
+		deny all;
+	}
+
+	# static files do not change that much.
+	expires  30d;
+
+	location = /index.php {
+		# PHP files are volatile!
+		expires off;
+
+		include <%= scope.lookupvar "nginx::config::configdir" %>/fastcgi_params;
+		keepalive_timeout 0;
+		fastcgi_pass unix:<%= scope.lookupvar "boxen::config::socketdir" %>/<%= name %>;
+		fastcgi_param SCRIPT_FILENAME <%= repo_dir %>/index.php;
+		fastcgi_param PATH_INFO $fastcgi_script_name;
+	}
 }

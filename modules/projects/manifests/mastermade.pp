@@ -13,7 +13,7 @@ class projects::mastermade {
     php::project { 'mastermade':
         # dotenv        => false,
         # elasticsearch => true,
-        # mysql         => true,
+        mysql         => true,
         nginx           => true,
         # redis         => true,
         # ruby          => '1.9.3',

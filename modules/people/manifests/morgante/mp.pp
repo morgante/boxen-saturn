@@ -1,5 +1,5 @@
 # this file enable development with PHP & MySQL
-class people::morgante::mp inherits people::morgante {
+class people::morgante::mp inherits people::morgante {    
     
     # Install php 5.4
     include php::5_4
@@ -11,7 +11,12 @@ class people::morgante::mp inherits people::morgante {
     
     # Set up PHP-FPM as a service running a specific version of PHP
     include php::fpm::5_4_10
-
+    
+    # Extension
+    php::extension::apc { "apc for 5.4.10":
+      php     => '5.4.10'
+    }
+    
     # Spin up a PHP-FPM pool for a project
     # Ensures:
     #  * the version of PHP is installed
