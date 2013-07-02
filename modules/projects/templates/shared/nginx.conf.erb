@@ -7,28 +7,34 @@ server {
 	client_max_body_size 50M;
 
 	error_page 500 502 503 504 /50x.html;
-
+	
 	# curiosity killed the cat
-	location ~ ^/system/(classes|locale|schema) {
-		deny all;
-	}
+    location ~ ^/system/(classes|locale|schema) {
+        deny all;
+    }
 
-	index  index.php index.html index.htm;
+    index  index.php index.html index.htm;
 
-	# try to serve static first, then index pages and finally index.php
-	try_files $uri $uri/ /index.php?$args;
+    # try to serve static first, then index pages and finally index.php
+    try_files $uri $uri/ /index.php?$args;
 
-	# static files do not change that much.
-	expires  30d;
+    # ... but do not expose PHP source code!
+    location \.php$ {
+        deny all;
+    }
 
-	location / {
-		# PHP files are volatile!
-		expires off;
+    # static files do not change that much.
+    expires  30d;
+ 
+    location = /index.php {
+        # PHP files are volatile!
+        expires off;
 
-		include <%= scope.lookupvar "nginx::config::configdir" %>/fastcgi_params;
-		keepalive_timeout 0;
-		fastcgi_pass unix:<%= scope.lookupvar "boxen::config::socketdir" %>/<%= name %>;
-		fastcgi_param SCRIPT_FILENAME <%= repo_dir %>/index.php;
-		fastcgi_param PATH_INFO $fastcgi_script_name;
-	}
+        fastcgi_pass unix:<%= scope.lookupvar "boxen::config::socketdir" %>/<%= name %>;
+
+        # include common params as shipped with nginx
+        include <%= scope.lookupvar "nginx::config::configdir" %>/fastcgi_params;
+        fastcgi_param  SCRIPT_NAME     <%= scope.lookupvar "boxen::config::srcdir" %>/<%= name %>/public/index.php;
+        fastcgi_param  SCRIPT_FILENAME $document_root$fastcgi_script_name;
+    }
 }
