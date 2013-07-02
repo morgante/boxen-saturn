@@ -41,6 +41,9 @@ class people::morgante {
     # MySQL
     include "mysql"
     
+    # Heroku
+    include "heroku"
+    
     # Projects
     include projects::all
     
