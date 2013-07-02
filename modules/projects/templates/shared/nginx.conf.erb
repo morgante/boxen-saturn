@@ -4,7 +4,7 @@ upstream <%= server_name %> {
 
 server {
   access_log <%= scope.lookupvar "nginx::config::logdir" %>/<%= name %>.access.log main;
-  listen 80;
+  listen 90;
   root <%= scope.lookupvar "boxen::config::srcdir" %>/<%= name %>/public;
   server_name <%= server_name %>;
 

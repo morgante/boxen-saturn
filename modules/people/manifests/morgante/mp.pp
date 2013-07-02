@@ -27,6 +27,8 @@ class people::morgante::mp inherits people::morgante {
     
     # notify{ "${nginx::config::configfile}": }
     
+    # Rewrite nginx
+    # public {""}
     
     # # include apache
     # include "apache"

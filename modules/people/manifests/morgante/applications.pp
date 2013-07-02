@@ -121,4 +121,7 @@ class people::morgante::applications inherits people::morgante {
     # -- Dropbox
     include "dropbox"
     
+    # -- Skype
+    include "skype"
+    
 }
