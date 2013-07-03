@@ -34,6 +34,9 @@ class people::morgante {
     # Node.js
     class { 'nodejs::global': version => 'v0.10.5' }
     
+    # Meteor
+    include meteorjs
+    
     # Mongo
     include mongodb
     include mongodb::config
