@@ -164,14 +164,14 @@ GITHUBTARBALL
     transmission (1.0.0)
 
 GITHUBTARBALL
-  remote: mattheath/puppet-php
-  specs:
-    php (0.5.7)
-
-GITHUBTARBALL
   remote: modestymaster/puppet-mongodb
   specs:
     mongodb (1.0.4)
+
+GITHUBTARBALL
+  remote: morgante/puppet-php
+  specs:
+    php (1.1.1)
 
 GITHUBTARBALL
   remote: newtriks/puppet-meteorjs
@@ -225,7 +225,7 @@ DEPENDENCIES
   onepassword (= 1.0.1)
   osx (= 1.0.0)
   pcre (= 1.0.0)
-  php (= 0.5.7)
+  php (= 1.1.1)
   pkgconfig (= 1.0.0)
   quicksilver (= 1.0.1)
   repository (= 2.0.2)

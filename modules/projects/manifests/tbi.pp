@@ -13,12 +13,12 @@ class projects::tbi {
     php::project { 'tbi':
         # dotenv        => false,
         # elasticsearch => true,
-        mysql         => true,
-        nginx         => "${boxen::config::repodir}/modules/projects/configs/nginx.tbi.conf.erb",
-        # redis         => true,
+        mysql     => true,
+        nginx     => "${boxen::config::repodir}/modules/projects/configs/nginx.tbi.conf.erb",
+        mongodb   => true,
         # ruby          => '1.9.3',
-        php           => '5.4.10',
-        dir             => "/Users/${::luser}/Documents/computer/code/tbi/tbi",
-        source          => 'tbi/tbi'
+        php       => '5.4.10',
+        dir       => "/Users/${::luser}/Documents/computer/code/tbi/tbi",
+        source    => 'tbi/tbi'
     }
 }

@@ -21,6 +21,14 @@ class people::morgante::mp inherits people::morgante {
       php     => '5.4.10'
     }
     
+    php::extension::mongo { "mongo for 5.4.10":
+      php     => '5.4.10'
+    }
+    
+    # php::extension::redis { "redis for 5.4.10":
+    #    php     => '5.4.10'
+    # }
+    
     # Spin up a PHP-FPM pool for a project
     # Ensures:
     #  * the version of PHP is installed
