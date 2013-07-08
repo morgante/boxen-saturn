@@ -37,8 +37,8 @@ class people::morgante {
     # Meteor
     include meteorjs
     
-    # VirtualBox
-    include virtualbox
+    # Vagrant
+    include vagrant
     
     # Mongo
     include mongodb

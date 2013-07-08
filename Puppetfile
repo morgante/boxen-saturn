@@ -48,7 +48,7 @@ github "quicksilver",	"1.0.1"
 github "skype",			"1.0.3"
 
 # Development
-github "virtualbox",	"1.0.4"
+github "vagrant",		"2.0.7"
 github "meteorjs",		"1.0.5", :repo => "newtriks/puppet-meteorjs"
 github "heroku",		"2.0.0"
 github "mysql",			"1.1.3"

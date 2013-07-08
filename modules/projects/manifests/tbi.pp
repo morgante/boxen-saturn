@@ -14,7 +14,7 @@ class projects::tbi {
         # dotenv        => false,
         # elasticsearch => true,
         mysql         => true,
-        nginx           => true,
+        nginx         => "${boxen::config::repodir}/modules/projects/configs/nginx.tbi.conf.erb",
         # redis         => true,
         # ruby          => '1.9.3',
         php           => '5.4.10',

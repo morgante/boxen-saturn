@@ -1,0 +1,26 @@
+server {
+    access_log <%= scope.lookupvar "nginx::config::logdir" %>/<%= name %>.access.log main;
+    listen 80;
+    root <%= scope.lookupvar "boxen::config::srcdir" %>/<%= name %>/public;
+    server_name local.businessinsider.com;
+
+    index  index.php index.html index.htm;
+ 
+    location = /index.php {
+        keepalive_timeout 0;
+        fastcgi_param PATH_INFO $fastcgi_script_name;
+    }
+    
+    location ~ \.php$ {
+ 		fastcgi_index index.php;
+      fastcgi_pass unix:<%= scope.lookupvar "boxen::config::socketdir" %>/<%= name %>;
+ 		fastcgi_split_path_info ^(.+\.php)(/.+)$;
+      include <%= scope.lookupvar "nginx::config::configdir" %>/fastcgi_params;
+
+ 		# TBI ENVIRONMENT VARIABLES
+ 		fastcgi_param TBI_CONFIG /Users/mpell/code/tbi/tbi/configs/;
+ 		fastcgi_param TBI_DOMAIN businessinsider.com;
+ 		fastcgi_param TBI_ENV local;
+ 		fastcgi_param TBI_RELEASETIME 0;
+ 	}
+}

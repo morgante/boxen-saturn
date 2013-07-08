@@ -40,6 +40,14 @@ class people::morgante::symlinks inherits people::morgante {
         target  => "${my_homedir}/Dropbox/work"
     }
     
+    # code
+    file { "symlink-code":
+        ensure  => link,
+        mode    => '0644',
+        path    => "${my_homedir}/code",
+        target  => "${my_homedir}/Dropbox/computer/code"
+    }
+    
     # shelf
     file { "symlink-shelf":
         ensure  => link,
