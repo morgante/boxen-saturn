@@ -139,6 +139,11 @@ GITHUBTARBALL
     textmate (1.1.0)
 
 GITHUBTARBALL
+  remote: boxen/puppet-transmission
+  specs:
+    transmission (1.0.0)
+
+GITHUBTARBALL
   remote: boxen/puppet-vagrant
   specs:
     vagrant (2.0.7)
@@ -154,14 +159,9 @@ GITHUBTARBALL
     zsh (1.0.0)
 
 GITHUBTARBALL
-  remote: cprice-puppet/puppetlabs-inifile
+  remote: cprice404/puppetlabs-inifile
   specs:
     inifile (0.9.0)
-
-GITHUBTARBALL
-  remote: fromonesrc/puppet-transmission
-  specs:
-    transmission (1.0.0)
 
 GITHUBTARBALL
   remote: modestymaster/puppet-mongodb

@@ -8,7 +8,13 @@ class projects::tbi {
         ensure  => link,
         mode    => '0644',
         path    => "${boxen::config::srcdir}/tbi/public",
-        target  => "/Users/${::luser}/Documents/computer/code/tbi/tbi/businessinsider/htdocs",
+        target  => "/Users/${::luser}/Documents/computer/code/tbi/tbi/",
+    }
+    file { "symlink-tbi-public-assets":
+        ensure  => link,
+        mode    => '0644',
+        path  => "/Users/${::luser}/Documents/computer/code/tbi/tbi/businessinsider/htdocs/assets",
+        target  => "/Users/${::luser}/Documents/computer/code/tbi/tbi/assets/",
     }
     php::project { 'tbi':
         # dotenv        => false,
