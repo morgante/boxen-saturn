@@ -22,13 +22,8 @@ server {
         fastcgi_param TBI_DOMAIN businessinsider.com;
         fastcgi_param TBI_ENV local;
         fastcgi_param TBI_RELEASETIME 0;
+        fastcgi_param SCRIPT_URL '';
     }
-    # location ~ \.php$ {
-    #     try_files $uri =404;
-    #     include       /etc/nginx/fastcgi_params;
-    #     fastcgi_pass  127.0.0.1:9000;
-    #     fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
-    # }
 
     location @extensionless-php {
         if (-f $request_filename.php) {
