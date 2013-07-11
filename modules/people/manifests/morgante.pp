@@ -28,6 +28,9 @@ class people::morgante {
     # PHP Development
     include people::morgante::mp
     
+    # StatsD/analytics testing
+    include people::morgante::analytics
+    
     # Foreman
     include foreman
     

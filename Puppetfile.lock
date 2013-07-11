@@ -129,6 +129,11 @@ GITHUBTARBALL
     spotify (1.0.0)
 
 GITHUBTARBALL
+  remote: boxen/puppet-statsd
+  specs:
+    statsd (1.0.2)
+
+GITHUBTARBALL
   remote: boxen/puppet-sudo
   specs:
     sudo (1.0.0)
@@ -232,6 +237,7 @@ DEPENDENCIES
   ruby (= 4.1.0)
   skype (= 1.0.3)
   spotify (= 1.0.0)
+  statsd (= 1.0.2)
   stdlib (= 4.0.2)
   sudo (= 1.0.0)
   textmate (= 1.1.0)
