@@ -5,4 +5,5 @@ class people::morgante::analytics inherits people::morgante {
     # Include StatsD
     include "statsd"
     
+    statsd::config::port = 5
 }
