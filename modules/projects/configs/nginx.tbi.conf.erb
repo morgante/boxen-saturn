@@ -5,7 +5,7 @@ server {
     server_name local.businessinsider.com;
     
     location / {
-        try_files $uri $uri/ @extensionless-php;
+        try_files $uri @extensionless-php;
         index index.php index.html index.htm;
     }
 
@@ -27,11 +27,13 @@ server {
 
     location @extensionless-php {
         if (-f $request_filename.php) {
-            rewrite ^(.*)$ $1.php last;
+            rewrite ^/(.*)$ /$1.php last;
         }
         if (!-f $request_filename.php) {
-            rewrite ^(.*)$ /index.php?$1 last;
+            rewrite ^/(.*)$ /index.php?$1 last;
         }
     }
+
+
 
 }
