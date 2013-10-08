@@ -2,6 +2,12 @@
 class people::morgante::applications inherits people::morgante {
     
     notify { "loading applications": }
+
+    # -- Dropbox
+    include "dropbox"
+    $my_dropbox = "${my_homedir}/mockbox/Dropbox"
+    
+    notify{ "dropbox: ${my_dropbox}": }
     
     # -- textmate
     file { "textmate-config":
@@ -117,9 +123,6 @@ class people::morgante::applications inherits people::morgante {
 
     # -- Colloquy
     include colloquy
-    
-    # -- Dropbox
-    include "dropbox"
     
     # -- Skype
     include "skype"

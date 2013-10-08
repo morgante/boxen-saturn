@@ -1,8 +1,8 @@
 server {
-    access_log <%= scope.lookupvar "nginx::config::logdir" %>/<%= name %>.access.log main;
+    access_log <%= scope.lookupvar "nginx::config::logdir" %>/<%= @name %>.access.log main;
     listen 80;
-    root <%= scope.lookupvar "boxen::config::srcdir" %>/<%= name %>/public;
-    server_name <%= server_name %>;
+    root <%= scope.lookupvar "boxen::config::srcdir" %>/<%= @name %>/public;
+    server_name <%= @server_name %>;
 
     # curiosity killed the cat
     location ~ ^/system/(classes|locale|schema) {
@@ -25,8 +25,8 @@ server {
     location = /index.php {
         include <%= scope.lookupvar "nginx::config::configdir" %>/fastcgi_params;
         keepalive_timeout 0;
-        fastcgi_pass unix:<%= scope.lookupvar "boxen::config::socketdir" %>/<%= name %>;
-        fastcgi_param SCRIPT_FILENAME <%= scope.lookupvar "boxen::config::srcdir" %>/<%= name %>/public/index.php;
+        fastcgi_pass unix:<%= scope.lookupvar "boxen::config::socketdir" %>/<%= @name %>;
+        fastcgi_param SCRIPT_FILENAME <%= scope.lookupvar "boxen::config::srcdir" %>/<%= @name %>/public/index.php;
         fastcgi_param PATH_INFO $fastcgi_script_name;
     }
 }

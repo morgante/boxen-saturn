@@ -1,7 +1,7 @@
 server {
-    access_log <%= scope.lookupvar "nginx::config::logdir" %>/<%= name %>.access.log main;
+    access_log <%= scope.lookupvar "nginx::config::logdir" %>/<%= @name %>.access.log main;
     listen 80;
-    root <%= scope.lookupvar "boxen::config::srcdir" %>/<%= name %>/public/businessinsider/htdocs/;
+    root <%= scope.lookupvar "boxen::config::srcdir" %>/<%= @name %>/public/businessinsider/htdocs/;
     server_name local.businessinsider.com;
     
     location / {
@@ -13,7 +13,7 @@ server {
         try_files $uri $uri.php /index.php?$args
         fastcgi_index /index.php;
 
-        fastcgi_pass unix:<%= scope.lookupvar "boxen::config::socketdir" %>/<%= name %>;
+        fastcgi_pass unix:<%= scope.lookupvar "boxen::config::socketdir" %>/<%= @name %>;
         fastcgi_split_path_info ^(.+\.php)(/.+)$;
         include <%= scope.lookupvar "nginx::config::configdir" %>/fastcgi_params;
 
