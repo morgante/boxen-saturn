@@ -31,20 +31,27 @@ class people::morgante::applications inherits people::morgante {
     }
     
     # -- Mail.app
+    file { "${my_homedir}/Library/Mail":
+        ensure  => directory,
+    }
+
+		file { "${my_homedir}/Library/Mail/V2":
+        ensure  => directory,
+    }
+
     file { "mail-pref":
         ensure  => link,
         mode    => '0644',
         force   => true,
         path    => "${my_homedir}/Library/Preferences/com.apple.mail.plist",
-        target  => "${my_homedir}/Dropbox/Applications/Mail/Preferences/com.apple.mail.plist"
+        target  => "${my_dropbox}/Applications/Mail/Preferences/com.apple.mail.plist"
     }
-   
+  
     file { "mail-data":
-        ensure  => link,
-        mode    => '0644',
-        force   => true,
-        path    => "${my_homedir}/Library/Mail",
-        target  => "${my_homedir}/Dropbox/Applications/Mail/accounts"
+        recurse	=> true,
+				replace	=> false,
+        path    => "${my_homedir}/Library/Mail/V2/MailData",
+        source  => "${my_dropbox}/Applications/Mail/data"
     }
     
     # -- Calendar    
