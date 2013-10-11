@@ -13,14 +13,15 @@
     pbcopy < ~/.ssh/id_rsa.pub
     ```
 
-4. Add the key (it's on your clipboard) to your [GitHub](https://github.com/settings/ssh).
-4. Install Boxen
+5. Add the key (it's on your clipboard) to your [GitHub](https://github.com/settings/ssh).
+6. Install Boxen
 
     ```
     sudo mkdir -p /opt/boxen
     sudo chown ${USER}:staff /opt/boxen
     git clone git@github.com:morgante/boxen-saturn.git /opt/boxen/repo
     cd /opt/boxen/repo
+    bundle install
     script/boxen
     ```
 
