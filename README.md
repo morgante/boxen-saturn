@@ -1,6 +1,7 @@
 # Our Boxen
 
-1. Enable full disk encryption.
+1. Set [name](http://en.wikipedia.org/wiki/Moons_of_Saturn#Tables_of_moons) in Sharing Preferences.
+2. Enable full disk encryption.
 2. Install XCode
 3. Install XCode command line tools
 4. Install Boxen
