@@ -5,12 +5,14 @@
 2. Install XCode
 3. Install XCode command line tools
 4. Generate an [SSH key](https://help.github.com/articles/generating-ssh-keys) with a passphrase.
+
     ```
     cd ~/.ssh
     ssh-keygen -t rsa -C "your_email@example.com"
     ssh-add id_rsa
     pbcopy < ~/.ssh/id_rsa.pub
     ```
+
 4. Add the key (it's on your clipboard) to your [GitHub](https://github.com/settings/ssh).
 4. Install Boxen
 
