@@ -8,7 +8,7 @@
     ```
     sudo mkdir -p /opt/boxen
     sudo chown ${USER}:staff /opt/boxen
-    git clone <location of my new git repository> /opt/boxen/repo
+    git clone git@github.com:morgante/boxen-saturn.git /opt/boxen/repo
     cd /opt/boxen/repo
     script/boxen
     ```
