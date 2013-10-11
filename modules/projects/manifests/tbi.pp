@@ -27,4 +27,8 @@ class projects::tbi {
         dir       => "/Users/${::luser}/Documents/computer/code/tbi/tbi",
         source    => 'tbi/tbi'
     }
+
+		# solr
+		include java
+		include solr
 }

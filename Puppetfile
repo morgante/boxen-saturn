@@ -64,6 +64,8 @@ github "pcre",			"1.0.0"
 github "apache",		"0.0.2", :repo => "webflo/boxen-puppet-apache"
 github "php",				"1.1.2", :repo => "morgante/puppet-php"
 github "apache_php",	"0.0.2", :repo => "webflo/puppet-apache_php"
+github "java", 			"1.0.5"
+github "solr",			"1.0.4"
 
 # StatsD
 github "statsd",		"1.0.2"
