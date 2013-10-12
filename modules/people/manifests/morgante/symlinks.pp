@@ -70,7 +70,16 @@ class people::morgante::symlinks inherits people::morgante {
         mode    => '0644',
         path    => "${my_homedir}/Movies/video",
         target  => "${my_homedir}/Dropbox/computer/video"
-    }      
+    }    
+
+  	# Music
+	file { "symlink-music":
+        ensure  => link,
+		force	=> true,
+        mode    => '0644',
+        path    => "${my_homedir}/Music",
+        target  => "${my_homedir}/Dropbox/Music"
+    }
     
     # keychain
     file { "symlink-keychain":

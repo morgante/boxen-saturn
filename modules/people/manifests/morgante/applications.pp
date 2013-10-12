@@ -5,7 +5,7 @@ class people::morgante::applications inherits people::morgante {
 
     # -- Dropbox
     include "dropbox"
-    $my_dropbox = "${my_homedir}/mockbox/Dropbox"
+    $my_dropbox = "${my_homedir}/Dropbox"
     
     notify{ "dropbox: ${my_dropbox}": }
     
@@ -49,7 +49,7 @@ class people::morgante::applications inherits people::morgante {
   
     file { "mail-data":
         recurse	=> true,
-				replace	=> false,
+		replace	=> false,
         path    => "${my_homedir}/Library/Mail/V2/MailData",
         source  => "${my_dropbox}/Applications/Mail/data"
     }
@@ -97,6 +97,7 @@ class people::morgante::applications inherits people::morgante {
     # -- Activity Monitor
     file { "activity-monitor-link":
         ensure  => link,
+		force	=> true,
         mode    => '0644',
         path    => "${my_homedir}/Shelf/Activity Monitor",
         target  => "/Applications/Utilities/Activity Monitor.app"

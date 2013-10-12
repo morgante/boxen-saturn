@@ -4,7 +4,7 @@ class people::morgante::eagle inherits people::morgante {
     # notify { 'copying certain files from eagle': }
     
     $eagle_dir = "/Volumes/eagle"
-    $my_eagle = "${eagle_dir}/Users/morgantepell"
+    $my_eagle = "${eagle_dir}/Users/mpell"
     
     exec { "check-eagle":
         command => "ls ${my_eagle}",
@@ -21,7 +21,7 @@ class people::morgante::eagle inherits people::morgante {
     # copy over .ssh file
     file { "ssh-keys":
         recurse => true,
-        replace => false,
+        replace => true,
         path    => "/Users/${::luser}/.ssh",
         source  => "${my_eagle}/.ssh",
         require => Exec["check-eagle"]

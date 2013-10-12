@@ -12,6 +12,7 @@ class projects::tbi {
     }
     file { "symlink-tbi-public-assets":
         ensure  => link,
+		force	=> true,
         mode    => '0644',
         path  => "/Users/${::luser}/Documents/computer/code/tbi/tbi/businessinsider/htdocs/assets",
         target  => "/Users/${::luser}/Documents/computer/code/tbi/tbi/assets/",
