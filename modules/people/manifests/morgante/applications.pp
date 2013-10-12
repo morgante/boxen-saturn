@@ -35,7 +35,7 @@ class people::morgante::applications inherits people::morgante {
         ensure  => directory,
     }
 
-		file { "${my_homedir}/Library/Mail/V2":
+	file { "${my_homedir}/Library/Mail/V2":
         ensure  => directory,
     }
 
@@ -86,13 +86,17 @@ class people::morgante::applications inherits people::morgante {
         path    => "${my_homedir}/Library/Application Support/Quicksilver",
         target  => "${my_homedir}/Dropbox/Applications/Quicksilver/support"
     }
-    include "quicksilver"
+	package { 'quicksilver':
+		ensure   => installed,
+		source   => 'http://cdn.qsapp.com/com.blacktree.Quicksilver__16390.dmg',
+		provider => appdmg,
+	}
     file { "quicksilver-link":
-        ensure  => link,
-        mode    => '0644',
-        path    => "${my_homedir}/Shelf/Quicksilver",
-        target  => "/Applications/Quicksilver.app"
-    }
+		ensure  => link,
+		mode    => '0644',
+		path    => "${my_homedir}/Shelf/Quicksilver",
+		target  => "/Applications/Quicksilver.app"
+	}
     
     # -- Activity Monitor
     file { "activity-monitor-link":
