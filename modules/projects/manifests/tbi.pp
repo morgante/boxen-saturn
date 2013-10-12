@@ -1,4 +1,6 @@
 class projects::tbi {
+	
+	notify{ "setting up tbi": }
     
     # boxen::config::htdir = 
     file { "${boxen::config::srcdir}/tbi":
@@ -29,7 +31,7 @@ class projects::tbi {
         source    => 'tbi/tbi'
     }
 
-		# solr
-		include java
-		include solr
+	# solr
+	include java
+	include solr
 }
