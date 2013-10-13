@@ -49,6 +49,7 @@ github "spotify",		"1.0.0"
 github "adium",			"1.1.1"
 github "quicksilver",	"1.1.0"
 github "skype",			"1.0.3"
+github "sublime_text_2","1.1.2"
 
 # Development
 github "vagrant",		"2.0.7"

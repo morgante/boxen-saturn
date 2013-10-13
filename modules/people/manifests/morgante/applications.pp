@@ -53,6 +53,16 @@ class people::morgante::applications inherits people::morgante {
         path    => "${my_homedir}/Library/Mail/V2/MailData",
         source  => "${my_dropbox}/Applications/Mail/data"
     }
+
+	# -- Sublime Text
+	include sublime_text_2
+	file { "sublime-config":
+        ensure  => link,
+		force	=> true,
+        mode    => '0644',
+        path    => "${my_homedir}/Library/Application Support/Sublime Text",
+        target  => "${my_dropbox}/Applications/sublime/support"
+    }
     
     # -- Calendar    
     file { "calendar-config":
@@ -94,7 +104,7 @@ class people::morgante::applications inherits people::morgante {
     file { "quicksilver-link":
 		ensure  => link,
 		mode    => '0644',
-		path    => "${my_homedir}/Shelf/Quicksilver",
+		path    => "${my_homedir}/shelf/Quicksilver",
 		target  => "/Applications/Quicksilver.app"
 	}
     
