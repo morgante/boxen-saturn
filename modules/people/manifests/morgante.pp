@@ -42,6 +42,9 @@ class people::morgante {
     
     # Vagrant
     include vagrant
+
+	# VirtualBox
+	include virtualbox
     
     # Mongo
     include mongodb
