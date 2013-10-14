@@ -22,13 +22,13 @@ class people::morgante::applications inherits people::morgante {
     }
     
     # -- AddressBook
-    file { "addressbook-config":
-        ensure  => link,
-        mode    => '0644',
-        force   => true,
-        path    => "${my_homedir}/Library/Application Support/AddressBook",
-        target  => "${my_homedir}/Dropbox/Applications/AddressBook/support"
-    }
+    # file { "addressbook-config":
+    #         ensure  => link,
+    #         mode    => '0644',
+    #         force   => true,
+    #         path    => "${my_homedir}/Library/Application Support/AddressBook",
+    #         target  => "${my_homedir}/Dropbox/Applications/AddressBook/support"
+    #     }
     
     # -- Mail.app
     file { "${my_homedir}/Library/Mail":
