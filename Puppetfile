@@ -53,6 +53,7 @@ github "sublime_text_2","1.1.2"
 
 # Development
 github "virtualbox",	"1.0.6"
+github "eclipse",		"2.2.0"
 github "vagrant",		"2.0.7"
 github "meteorjs",		"1.0.5", :repo => "newtriks/puppet-meteorjs"
 github "heroku",		"2.0.0"

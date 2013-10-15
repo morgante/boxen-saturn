@@ -20,6 +20,9 @@ class people::morgante::applications inherits people::morgante {
     exec { "use-textmate-git":
         command => "git config --global core.editor \"mate -w\""
     }
+
+	# --- Eclipse
+	include eclipse::java
     
     # -- AddressBook
     # file { "addressbook-config":
