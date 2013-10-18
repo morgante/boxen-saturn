@@ -66,15 +66,6 @@ class people::morgante::applications inherits people::morgante {
         path    => "${my_homedir}/Library/Application Support/Sublime Text",
         target  => "${my_dropbox}/Applications/sublime/support"
     }
-    
-    # -- Calendar    
-    file { "calendar-config":
-        ensure  => link,
-        mode    => '0644',
-        force   => true,
-        path    => "${my_homedir}/Library/Calendars",
-        target  => "${my_dropbox}/Applications/iCal/Calendars"
-    }
         
     # -- Adium
     file { "adium-config":
