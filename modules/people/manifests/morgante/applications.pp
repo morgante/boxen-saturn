@@ -63,7 +63,7 @@ class people::morgante::applications inherits people::morgante {
         ensure  => link,
 		force	=> true,
         mode    => '0644',
-        path    => "${my_homedir}/Library/Application Support/Sublime Text",
+        path    => "${my_homedir}/Library/Application Support/Sublime Text 2",
         target  => "${my_dropbox}/Applications/sublime/support"
     }
         
