@@ -33,6 +33,9 @@ class people::morgante {
     
     # Foreman
     include foreman
+
+    # Java
+    include java
     
     # Node.js
     class { 'nodejs::global': version => 'v0.10.5' }
