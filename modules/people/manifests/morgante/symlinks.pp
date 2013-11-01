@@ -81,14 +81,6 @@ class people::morgante::symlinks inherits people::morgante {
         target  => "${my_homedir}/Dropbox/Music"
     }
     
-    # keychain
-    file { "symlink-keychain":
-        ensure  => link,
-        mode    => '0644',
-        path    => "${my_homedir}/Library/Keychains/login.keychain",
-        target  => "${my_homedir}/Dropbox/security/morgante.keychain"
-    }
-    
     # config
     file { "symlink-config":
         ensure  => link,
