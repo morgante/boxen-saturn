@@ -24,7 +24,13 @@ class people::morgante::mp inherits people::morgante {
     php::extension::mongo { "mongo for 5.4.10":
       php     => '5.4.10'
     }
-    
+
+	# Composer
+	# curl -sS https://getcomposer.org/installer | php -- --install-dir=bin
+	exec {'composer':
+	    command => "curl -sS https://getcomposer.org/installer | php -- --install-dir='${boxen::config::home}/bin'"
+	}
+	
     # php::extension::redis { "redis for 5.4.10":
     #    php     => '5.4.10'
     # }
