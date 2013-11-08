@@ -1,8 +1,9 @@
 server {
     access_log <%= scope.lookupvar "nginx::config::logdir" %>/<%= @name %>.access.log main;
-    listen 80;
     root <%= scope.lookupvar "boxen::config::srcdir" %>/<%= @name %>/public/businessinsider/htdocs/;
     server_name local.businessinsider.com;
+
+    listen 80;
     
     location / {
         try_files $uri @extensionless-php;
@@ -33,7 +34,49 @@ server {
             rewrite ^/(.*)$ /index.php?$1 last;
         }
     }
+}
 
+server {
+    access_log <%= scope.lookupvar "nginx::config::logdir" %>/<%= @name %>.access.log main;
+    root <%= scope.lookupvar "boxen::config::srcdir" %>/<%= @name %>/public/businessinsider/htdocs/;
+    server_name local.businessinsider.com;
 
+	ssl on;
+	fastcgi_param HTTPS on;
 
+	listen 443 ssl;
+	ssl_certificate     /Users/mpell/code/tbi/certs/wildcard.businessinsider.com.2013.crt;
+	ssl_certificate_key /Users/mpell/code/tbi/certs/wildcard.businessinsider.com.2013.key;
+	ssl_protocols       SSLv3 TLSv1 TLSv1.1 TLSv1.2;
+	ssl_ciphers         HIGH:!aNULL:!MD5;
+    
+    location / {
+        try_files $uri @extensionless-php;
+        index index.php index.html index.htm;
+    }
+
+    location ~ \.php$ {
+        try_files $uri $uri.php /index.php?$args
+        fastcgi_index /index.php;
+
+        fastcgi_pass unix:<%= scope.lookupvar "boxen::config::socketdir" %>/<%= @name %>;
+        fastcgi_split_path_info ^(.+\.php)(/.+)$;
+        include <%= scope.lookupvar "nginx::config::configdir" %>/fastcgi_params;
+
+        # TBI ENVIRONMENT VARIABLES
+        fastcgi_param TBI_CONFIG /Users/mpell/code/tbi/tbi/configs/;
+        fastcgi_param TBI_DOMAIN businessinsider.com;
+        fastcgi_param TBI_ENV local;
+        fastcgi_param TBI_RELEASETIME 0;
+        fastcgi_param SCRIPT_URL '';
+    }
+
+    location @extensionless-php {
+        if (-f $request_filename.php) {
+            rewrite ^/(.*)$ /$1.php last;
+        }
+        if (!-f $request_filename.php) {
+            rewrite ^/(.*)$ /index.php?$1 last;
+        }
+    }
 }
