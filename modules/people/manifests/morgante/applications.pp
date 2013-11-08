@@ -112,7 +112,7 @@ class people::morgante::applications inherits people::morgante {
     }
     
     # -- Yojimbo
-    file { "yohimbo-config":
+    file { "yojimbo-config":
         ensure  => link,
         mode    => '0644',
         path    => "${my_homedir}/Library/Application Support/Yojimbo",
@@ -142,5 +142,8 @@ class people::morgante::applications inherits people::morgante {
     
     # -- Skype
     include "skype"
+
+	# -- Kindle
+	include "kindle"
     
 }
