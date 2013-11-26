@@ -75,5 +75,12 @@ class people::morgante {
         source  => "${boxen::config::srcdir}/dotfiles/home/.zshrc",
         require  => Repository["${boxen::config::srcdir}/dotfiles"]
     }
-    
+
+    # Slate
+    include "slate"
+    file { "slate-profile":
+        path    => "/Users/${::luser}/.slate",
+        source  => "${boxen::config::srcdir}/dotfiles/home/.slate",
+        require  => Repository["${boxen::config::srcdir}/dotfiles"]
+    }
 }
