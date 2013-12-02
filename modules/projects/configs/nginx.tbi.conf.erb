@@ -80,3 +80,42 @@ server {
         }
     }
 }
+
+# BII
+server {
+    access_log <%= scope.lookupvar "nginx::config::logdir" %>/<%= @name %>.bii.access.log main;
+    root <%= scope.lookupvar "boxen::config::srcdir" %>/<%= @name %>/public/applications/intelligence.businessinsider.com/htdocs/;
+    server_name intelligence-local.businessinsider.com;
+
+    listen 80;
+    
+    location / {
+        try_files $uri @extensionless-php;
+        index index.php index.html index.htm;
+    }
+
+    location ~ \.php$ {
+        try_files $uri $uri.php /index.php?$args
+        fastcgi_index /index.php;
+
+        fastcgi_pass unix:<%= scope.lookupvar "boxen::config::socketdir" %>/<%= @name %>;
+        fastcgi_split_path_info ^(.+\.php)(/.+)$;
+        include <%= scope.lookupvar "nginx::config::configdir" %>/fastcgi_params;
+
+        # TBI ENVIRONMENT VARIABLES
+        fastcgi_param TBI_CONFIG /Users/mpell/code/tbi/tbi/configs/;
+        fastcgi_param TBI_DOMAIN businessinsider.com;
+        fastcgi_param TBI_ENV local;
+        fastcgi_param TBI_RELEASETIME 0;
+        fastcgi_param SCRIPT_URL '';
+    }
+
+    location @extensionless-php {
+        if (-f $request_filename.php) {
+            rewrite ^/(.*)$ /$1.php last;
+        }
+        if (!-f $request_filename.php) {
+            rewrite ^/(.*)$ /index.php?$1 last;
+        }
+    }
+}
