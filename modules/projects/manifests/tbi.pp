@@ -34,4 +34,7 @@ class projects::tbi {
 	# solr
 	include java
 	include solr
+
+    # graphite
+    include graphite
 }
