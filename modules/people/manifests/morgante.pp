@@ -83,4 +83,9 @@ class people::morgante {
         source  => "${boxen::config::srcdir}/dotfiles/home/.slate",
         require  => Repository["${boxen::config::srcdir}/dotfiles"]
     }
+
+    # ssh copy ids
+    package { 'ssh-copy-id':
+        ensure => installed,
+    }
 }
