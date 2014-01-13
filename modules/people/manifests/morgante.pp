@@ -36,6 +36,10 @@ class people::morgante {
 
     # Java
     include java
+
+    # RabbitMQ
+    include erlang
+    include rabbitmq
     
     # Node.js
     class { 'nodejs::global': version => 'v0.10.5' }

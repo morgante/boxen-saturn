@@ -73,5 +73,8 @@ github "apache_php",	"0.0.2", :repo => "webflo/puppet-apache_php"
 github "java", 			"1.0.5"
 github "solr",			"1.0.4"
 
+github "erlang",		"1.0.1"
+github "rabbitmq",		"0.4.1", :repo => "crowdtap/puppet-rabbitmq"
+
 # StatsD
 github "statsd",		"1.0.2"
