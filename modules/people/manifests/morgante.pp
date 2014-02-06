@@ -62,6 +62,9 @@ class people::morgante {
     
     # Heroku
     include "heroku"
+
+    # Docker
+    include docker
     
     # Projects
     include projects::all

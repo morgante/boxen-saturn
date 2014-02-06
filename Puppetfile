@@ -68,13 +68,12 @@ github "libtool",		"1.0.0"
 github "pkgconfig",		"1.0.0"
 github "pcre",			"1.0.0"
 github "apache",		"0.0.2", :repo => "webflo/boxen-puppet-apache"
-github "php",				"1.1.2", :repo => "morgante/puppet-php"
+github "php",			"1.1.2", :repo => "morgante/puppet-php"
 github "apache_php",	"0.0.2", :repo => "webflo/puppet-apache_php"
 github "java", 			"1.0.5"
 github "solr",			"1.0.4"
-
+github "docker",		"0.0.9", :repo => "morgante/puppet-docker"
 github "erlang",		"1.0.1"
-github "rabbitmq",		"0.4.1", :repo => "crowdtap/puppet-rabbitmq"
 
 # StatsD
 github "statsd",		"1.0.2"
