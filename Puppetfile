@@ -72,7 +72,7 @@ github "php",			"1.1.2", :repo => "morgante/puppet-php"
 github "apache_php",	"0.0.2", :repo => "webflo/puppet-apache_php"
 github "java", 			"1.0.5"
 github "solr",			"1.0.4"
-github "docker",		"0.0.9", :repo => "morgante/puppet-docker"
+github "docker",		"1.0.0", :repo => "morgante/puppet-docker"
 github "erlang",		"1.0.1"
 
 # StatsD
