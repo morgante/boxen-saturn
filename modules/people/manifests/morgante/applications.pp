@@ -8,6 +8,9 @@ class people::morgante::applications inherits people::morgante {
     $my_dropbox = "${my_homedir}/Dropbox"
     
     notify{ "dropbox: ${my_dropbox}": }
+
+    # -- iTerm
+    include iterm2::stable
     
     # -- textmate
     file { "textmate-config":

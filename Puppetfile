@@ -52,6 +52,7 @@ github "skype",			"1.0.3"
 github "sublime_text_2","1.1.2"
 github "kindle",		"1.0.1"
 github "slate",			"1.0.0"
+github "iterm2",		"1.0.7"
 
 # Development
 github "virtualbox",	"1.0.6"
