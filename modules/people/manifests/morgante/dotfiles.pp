@@ -24,11 +24,6 @@ class people::morgante::dotfiles inherits people::morgante {
     }
     
     # set up tunnel script
-    file { "tunnel-copy":
-        path    => "/Users/${::luser}/.tunnel",
-        source  => "${boxen::config::srcdir}/dotfiles/home/.tunnel",
-        require  => Repository["${boxen::config::srcdir}/dotfiles"]
-    }
     file { "tunnel-start-copy":
         path    => "/Users/${::luser}/.tunnel-start",
         source  => "${boxen::config::srcdir}/dotfiles/home/.tunnel-start",
@@ -38,10 +33,10 @@ class people::morgante::dotfiles inherits people::morgante {
         command  => "defaults write com.apple.loginwindow LoginHook /Users/${::luser}/.tunnel-start",
         provider => shell,
         user     => root,
-        require  => File["tunnel-copy"]
+        require  => File["tunnel-start-copy"]
     }
     exec { "tunnel-proxy":
-        command  => "networksetup -setsocksfirewallproxy Wi-Fi localhost 8080 Off",
+        command  => "networksetup -setsocksfirewallproxy Wi-Fi localhost 8089 Off",
         provider => shell,
         user     => root,
         require  => Exec["tunnel-autostart"]
