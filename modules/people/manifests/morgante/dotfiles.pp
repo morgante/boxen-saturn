@@ -8,6 +8,13 @@ class people::morgante::dotfiles inherits people::morgante {
         source  => 'morgante/dotfiles'
     }
 
+    # Set up SSH preferences
+    file { "ssh-config":
+        path    => "/Users/${::luser}/.ssh/config",
+        source  => "${boxen::config::srcdir}/dotfiles/home/.ssh",
+        require  => Repository["${boxen::config::srcdir}/dotfiles"],
+    }
+
     # set osx preferences
     # ---- this part is a hack
     exec { "prepare-osx-preferences":
