@@ -9,6 +9,9 @@ class people::morgante::applications inherits people::morgante {
     
     notify{ "dropbox: ${my_dropbox}": }
 
+    # -- Super Duper
+    include "superduper"
+
     # -- iTerm
     include iterm2::stable
     
