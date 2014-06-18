@@ -34,4 +34,3 @@
     script/boxen
     ```
 7. Open Mission Control and add a bunch of spaces.
-8. 
