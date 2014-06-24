@@ -2,6 +2,14 @@
 class people::morgante::symlinks inherits people::morgante {
     
     notify { "setting up symlinks": }
+
+    # shelf
+    file { "symlink-shelf":
+        ensure  => link,
+        mode    => '0644',
+        path    => "${my_homedir}/shelf",
+        target  => "${my_homedir}/Dropbox/Shelf"
+    }
     
     file { "symlink-docs-computer":
         ensure  => link,
@@ -46,14 +54,6 @@ class people::morgante::symlinks inherits people::morgante {
         mode    => '0644',
         path    => "${my_homedir}/code",
         target  => "${my_homedir}/Dropbox/computer/code"
-    }
-    
-    # shelf
-    file { "symlink-shelf":
-        ensure  => link,
-        mode    => '0644',
-        path    => "${my_homedir}/shelf",
-        target  => "${my_homedir}/Dropbox/Shelf"
     }
     
     # wallpaper
