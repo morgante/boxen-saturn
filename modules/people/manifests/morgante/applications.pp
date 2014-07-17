@@ -23,9 +23,6 @@ class people::morgante::applications inherits people::morgante {
         target  => "${my_homedir}/Dropbox/Applications/TextMate/support"
     }
     include "textmate"
-    exec { "use-textmate-git":
-        command => "git config --global core.editor \"mate -w\""
-    }
 
 	# --- Eclipse
 	include eclipse::java
@@ -71,6 +68,9 @@ class people::morgante::applications inherits people::morgante {
         mode    => '0644',
         path    => "${my_homedir}/Library/Application Support/Sublime Text 2",
         target  => "${my_dropbox}/Applications/sublime/support"
+    }
+    exec { "set-git-editor":
+        command => "git config --global core.editor \"subl -n -w\""
     }
         
     # -- Adium
