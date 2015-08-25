@@ -11,7 +11,8 @@
     ```
 
 2. Enable full disk encryption.
-3. Run Boxen
+3. Install Xcode.
+4. Run Boxen
 
     ```
     sudo mkdir -p /opt/boxen
@@ -21,4 +22,4 @@
     bundle install
     script/boxen
     ```
-4. Open Mission Control and add a bunch of spaces.
+5. Open Mission Control and add a bunch of spaces.
