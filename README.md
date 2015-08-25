@@ -5,8 +5,8 @@
     ```
     MOON="moon"
     scutil --set ComputerName "$MOON"
-    scutil --set HostName "$MOON.local"
-    scutil --set LocalHostName "$MOON.local"
+    scutil --set HostName "$MOON"
+    scutil --set LocalHostName "$MOON"
     defaults write /Library/Preferences/SystemConfiguration/com.apple.smb.server NetBIOSName -string "$MOON"
     ```
 
