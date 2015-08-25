@@ -21,6 +21,9 @@ class people::morgante {
     
     # Load applications
     include people::morgante::dotfiles
+
+    # Set preferences
+    include people::morgante::preferences
     
     #### Easy symlinks
     include people::morgante::symlinks

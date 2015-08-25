@@ -131,7 +131,7 @@ GITHUBTARBALL
 GITHUBTARBALL
   remote: boxen/puppet-osx
   specs:
-    osx (1.0.0)
+    osx (2.8.0)
 
 GITHUBTARBALL
   remote: boxen/puppet-pcre
@@ -323,7 +323,7 @@ DEPENDENCIES
   ohmyzsh (= 1.0.0)
   onepassword (= 1.0.1)
   openssl (= 1.0.0)
-  osx (= 1.0.0)
+  osx (= 2.8.0)
   pcre (= 1.0.0)
   phantomjs (= 3.0.0)
   php (= 1.1.2)

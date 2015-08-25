@@ -60,7 +60,7 @@ github "xquartz",     "1.2.1"
 
 # Optional/custom modules. There are tons available at
 # https://github.com/boxen.
-github "osx",       	"1.0.0"
+github "osx",       	"2.8.0"
 github "chrome",    	"1.1.1"
 github "zsh",	    	"1.0.0"
 github "ohmyzsh",		"1.0.0", :repo => "samjsharpe/puppet-ohmyzsh"
