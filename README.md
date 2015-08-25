@@ -18,7 +18,6 @@
     sudo chown ${USER}:staff /opt/boxen
     git clone https://github.com/morgante/boxen-saturn.git /opt/boxen/repo
     cd /opt/boxen/repo
-    bundle install
-    script/boxen
+    ./script/boxen
     ```
 4. Open Mission Control and add a bunch of spaces.
