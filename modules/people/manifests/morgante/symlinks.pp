@@ -88,5 +88,13 @@ class people::morgante::symlinks inherits people::morgante {
         path    => "/config",
         target  => "${my_homedir}/Dropbox/computer/config"
     }
+
+    # apps
+    file { "symlink-aspyr":
+        ensure  => link,
+        mode    => '0644',
+        path    => "${my_homedir}/Documents/Aspyr",
+        target  => "${my_homedir}/Dropbox/Applications/Aspyr"
+    }
     
 }

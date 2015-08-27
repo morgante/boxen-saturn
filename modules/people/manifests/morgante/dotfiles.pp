@@ -42,11 +42,13 @@ class people::morgante::dotfiles inherits people::morgante {
         user     => root,
         require  => File["tunnel-start-copy"]
     }
-    exec { "tunnel-proxy":
-        command  => "networksetup -setsocksfirewallproxy Wi-Fi localhost 8089 Off",
-        provider => shell,
-        user     => root,
-        require  => Exec["tunnel-autostart"]
-    }
+
+    # comment this out to auto-enable proxy
+    # exec { "tunnel-proxy":
+    #    command  => "networksetup -setsocksfirewallproxy Wi-Fi localhost 8089 Off",
+    #    provider => shell,
+    #    user     => root,
+    #    require  => Exec["tunnel-autostart"]
+    #}
     
 }
