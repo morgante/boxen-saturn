@@ -61,12 +61,12 @@ class people::morgante::applications inherits people::morgante {
     }
 
 	# -- Sublime Text
-	include sublime_text_2
-	file { "sublime-config":
+	# include sublime_text_2
+    file { "sublime-config":
         ensure  => link,
-		force	=> true,
+        force   => true,
         mode    => '0644',
-        path    => "${my_homedir}/Library/Application Support/Sublime Text 2",
+        path    => "${my_homedir}/Library/Application Support/Sublime Text 3",
         target  => "${my_dropbox}/Applications/sublime/support"
     }
     exec { "set-git-editor":
