@@ -53,8 +53,8 @@ class people::morgante {
 	include virtualbox
     
     # Mongo
-    include mongodb
-    include mongodb::config
+    # include mongodb
+    # include mongodb::config
     
     # MySQL
     include "mysql"
