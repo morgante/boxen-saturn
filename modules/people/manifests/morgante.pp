@@ -69,18 +69,7 @@ class people::morgante {
     include projects::all
     
     ### ZSH
-    include "zsh"
-    include "ohmyzsh"
-    file { "zsh-profile":
-        path    => "/Users/${::luser}/.zprofile",
-        source  => "${boxen::config::srcdir}/dotfiles/home/.zprofile",
-        require  => Repository["${boxen::config::srcdir}/dotfiles"]
-    }
-    file { "zsh-rc":
-        path    => "/Users/${::luser}/.zshrc",
-        source  => "${boxen::config::srcdir}/dotfiles/home/.zshrc",
-        require  => Repository["${boxen::config::srcdir}/dotfiles"]
-    }
+    include people::morgante::zsh
 
     # Slate
     include "slate"
